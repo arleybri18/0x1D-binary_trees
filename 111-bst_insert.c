@@ -17,7 +17,13 @@ bst_t *bst_insert(bst_t **tree, int value)
 	else
 	{
 		if (value < (*tree)->n)
-			bst_insert(&(*tree)->left, value);
+			if ((*tree)->right == NULL)
+			{
+				node = binary_tree_node(*tree, value);
+				(*tree)->right = node;
+			}
+			else
+				bst_insert(&(*tree)->left, value);
 		else if (value > (*tree)->n)
 			bst_insert(&(*tree)->right, value);
 		else
