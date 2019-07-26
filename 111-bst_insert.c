@@ -25,7 +25,7 @@ bst_t *bst_insert(bst_t **tree, int value)
 				return (node);
 			}
 			else
-				bst_insert(&(*tree)->left, value);
+				node = bst_insert(&(*tree)->left, value);
 		else if (value > (*tree)->n)
 			if ((*tree)->right == NULL)
 			{
@@ -34,7 +34,7 @@ bst_t *bst_insert(bst_t **tree, int value)
 				return (node);
 			}
 			else
-				bst_insert(&(*tree)->right, value);
+				node  = bst_insert(&(*tree)->right, value);
 		else
 			return (NULL);
 	}
